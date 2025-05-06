@@ -1,4 +1,5 @@
 //import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,14 +17,15 @@ export default function Home() {
       {/* Сетка карточек */}
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {Array.from({ length: 8 }).map((_, i) => (
-          <div
+          <Link
+            href={`/product/${i + 1}`}
             key={i}
             className="border rounded-md p-4 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="w-full h-40 bg-gray-200 mb-4" aria-label="Обложка книги" />
             <h2 className="text-lg font-medium">Название книги {i + 1}</h2>
             <p className="text-sm text-gray-600">Автор книги</p>
-          </div>
+          </Link>
         ))}
       </section>
     </main>
