@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import "./globals.css";
 
@@ -16,10 +17,10 @@ const Header = () => (
 
       {/* Навигация */}
       <nav className="flex gap-4 text-sm">
-        <a href="#" className="hover:underline">Главная</a>
-        <a href="#" className="hover:underline">Каталог</a>
-        <a href="#" className="hover:underline">О нас</a>
-        <a href="#" className="hover:underline">Контакты</a>
+        <Link href="/" className="hover:underline">Главная</Link>
+        <Link href="/catalog" className="hover:underline">Каталог</Link>
+        <Link href="/about" className="hover:underline">О нас</Link>
+        <Link href="/contact" className="hover:underline">Контакты</Link>
       </nav>
 
       {/* Поиск и корзина */}
@@ -31,13 +32,13 @@ const Header = () => (
           className="border rounded px-2 py-1 text-sm w-36 md:w-48"
         />
         {/* Иконка корзины */}
-        <button aria-label="Открыть корзину" className="relative">
+        <Link href="/cart" aria-label="Открыть корзину" className="relative">
           <ShoppingCartIcon className="h-6 w-6" />
           {/* Количество товаров — заглушка */}
           <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
               0
           </span>
-        </button>
+        </Link>
       </div>
     </div>
   </header>
