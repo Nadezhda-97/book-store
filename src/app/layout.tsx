@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { ShoppingCartIcon, UserIcon } from '@heroicons/react/24/outline';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,6 +38,10 @@ const Header = () => (
           <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full px-1">
               0
           </span>
+        </Link>
+        {/* Профиль */}
+        <Link href="/profile" aria-label="Личный кабинет">
+          <UserIcon className="h-6 w-6" />
         </Link>
       </div>
     </div>
