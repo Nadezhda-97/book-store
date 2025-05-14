@@ -1,5 +1,7 @@
 //import Image from "next/image";
-import Link from "next/link";
+//import Link from "next/link";
+import BookCard from "./components/BookCard";
+import { topBooks, newBooks, foreignBooks } from "./data/books";
 
 export default function Home() {
   return (
@@ -19,16 +21,8 @@ export default function Home() {
         <p className="text-gray-600">Ознакомьтесь с нашими самыми популярными изданиями</p>
         {/* Сетка карточек */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <Link
-              href={`/product/${i + 1}`}
-              key={i}
-              className="border rounded-md p-4 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="w-full h-40 bg-gray-200 mb-4" aria-label="Обложка книги" />
-              <h2 className="text-lg font-medium">Название книги {i + 1}</h2>
-              <p className="text-sm text-gray-600">Автор книги</p>
-          </Link>
+          {topBooks.map((book) => (
+            <BookCard key={book.id} book={book}/>
           ))}
         </div>
       </section>
@@ -37,10 +31,9 @@ export default function Home() {
       <section>
         <h2 className="text-2xl font-semibold mb-4">Новинки</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="border rounded p-4 text-center">Новая книга 1</div>
-          <div className="border rounded p-4 text-center">Новая книга 2</div>
-          <div className="border rounded p-4 text-center">Новая книга 3</div>
-          <div className="border rounded p-4 text-center">Новая книга 4</div>
+          {newBooks.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
         </div>
       </section>
 
@@ -48,10 +41,9 @@ export default function Home() {
       <section>
         <h2 className="text-2xl font-semibold mb-4">Книги на иностранном языке</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="border rounded p-4 text-center">Foreign Book 1</div>
-          <div className="border rounded p-4 text-center">Foreign Book 2</div>
-          <div className="border rounded p-4 text-center">Foreign Book 3</div>
-          <div className="border rounded p-4 text-center">Foreign Book 4</div>
+          {foreignBooks.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
         </div>
       </section>
     </main>
